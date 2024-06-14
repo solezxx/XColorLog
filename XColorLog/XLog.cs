@@ -14,6 +14,7 @@ namespace XColorLog
     public class XLog
     {
         public RichTextBox _richTextBox;
+        public int MaxLines = 100;
         public void AddLog(string logMessage, LogLevel logLevel = LogLevel.Normal)
         {
             // 创建新的段落
@@ -52,7 +53,7 @@ namespace XColorLog
 
             // 将段落添加到RichTextBox的文档中
             _richTextBox.Document.Blocks.Add(paragraph);
-            if (_richTextBox.Document.Blocks.Count > 10)
+            if (_richTextBox.Document.Blocks.Count > MaxLines)
             {
                 _richTextBox.Document.Blocks.Remove(_richTextBox.Document.Blocks.FirstBlock);
             }
